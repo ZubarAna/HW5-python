@@ -16,11 +16,11 @@ def input_data(name):
     return x
 
 
-def p_vs_p(name, k, counter, value):
+def p_vs_b(name, k, counter, value):
     print(f"Ходил {name}, он взял {k}, теперь у него {counter}. Осталось на столе {value} конфет.")
 
-player1 = input("Введите имя первого игрока: ")
-player2 = input("Введите имя второго игрока: ")
+player1 = input("Введите имя игрока: ")
+player2 = 'BOT'
 value = int(input("Введите количество конфет на столе: "))
 x = randint(1, 2)
 if x == 1:
@@ -38,13 +38,13 @@ while value > 28:
         counter1 += k
         value -= k
         count = 1
-        p_vs_p(player1, k, counter1, value)
+        p_vs_b(player1, k, counter1, value)
     else:
-        k = input_data(player2)
+        k = randint(1, 29)
         counter2 += k
         value -= k
         count = 0
-        p_vs_p(player2, k, counter2, value)
+        p_vs_b(player2, k, counter2, value)
 
 if count == 0:
     print(f"Выиграл {player1}")
